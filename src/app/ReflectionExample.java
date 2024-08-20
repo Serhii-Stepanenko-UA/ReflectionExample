@@ -1,8 +1,7 @@
 package app;
-// Виправте код
-import java.lang.annotation.Annotation;
+
 import java.lang.reflect.*;
-import java.util.Arrays;
+import java.lang.annotation.Annotation;
 
 public class ReflectionExample {
 
@@ -49,7 +48,7 @@ public class ReflectionExample {
 
     // Метод для виклику методу класу з вказаними аргументами
     public Object callMethod(String className, String methodName, Object... args)
-            throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+            throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
         Class<?> clazz = Class.forName(className);
         Method method = clazz.getDeclaredMethod(methodName);
 
@@ -71,7 +70,8 @@ public class ReflectionExample {
             System.out.println("Результат виклику методу length() класу java.lang.String: " +
                     reflectionExample.callMethod("java.lang.String", "length"));
 
-        } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
+        } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException |
+                 InstantiationException e) {
             System.out.println("Помилка.");
         }
     }
